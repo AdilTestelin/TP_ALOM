@@ -1,11 +1,15 @@
+import annotations.Controller;
+import annotations.RequestMapping;
+import controllers.HelloController;
 import org.junit.jupiter.api.Test;
+import servlets.DispatcherServlet;
 
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
-class DispatcherServletTest {
+class DispatcherServletTest extends DispatcherServlet {
 
     @Test
     void registerController_throwsIllegalArgumentException_forNonControllerClasses() {
