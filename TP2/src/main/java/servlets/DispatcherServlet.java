@@ -49,10 +49,11 @@ public class DispatcherServlet extends HttpServlet {
         Annotation[] annotations = controllerClass.getDeclaredAnnotations();
         boolean isAnnotedWithController = false;
         for(Annotation annotation : annotations) {
-            if (annotation.toString().equals("@annotations.Controller()")) {
-                isAnnotedWithController = true;
-            } else {
+            if (!annotation.toString().equals("@annotations.Controller()")) {
+                System.out.println(annotation.toString());
                 throw new IllegalArgumentException();
+            } else {
+                isAnnotedWithController = true;
             }
         }
         if (isAnnotedWithController) {
